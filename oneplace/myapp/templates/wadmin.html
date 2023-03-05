@@ -1,0 +1,158 @@
+{% load static%}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Admin Dashboard</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'wadmin/css/style.css' %}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+<section>
+	<div class="sidebar">
+		<h1 class="logo">Admin</h1>
+
+		<ul class="nav">
+			<li><a href="/wadmin/"><i class="fa fa-windows"></i> Dashboard</a></li>
+			<li class=""><a href="/photographer/">PHOTOGRAPHER</a></li>
+`			<li class=""><a href="/aduitorium/">AUDITORIUM OWNERS</a></li>
+			<li class=""><a href="/cabowners/">CAB OWNERS</a></li>
+			<li class=""><a href="/catering/">CATERING SERVICE</a></li>
+			<li class=""><a href="/emangemant/">EVENT MANAGEMENT</a></li>
+			<li class=""><a href="/blocked/">BLOCKED USER</a></li>
+
+		</ul>
+
+
+
+	</div>
+	<div class="main">
+
+		<div class="head-section">
+			<div class="col-6">
+				<h2>OVER VIEW</h2>
+
+			</div>
+
+			<div class="col-6" style="text-align: right;">
+				<i class="fa fa-bell-o hicon"></i>
+				<input type="text" class="search">
+				<i class="fa fa-search hicon sicon"></i>
+
+				<img src="image/user.png" class="user">
+
+				<div class="profile-div">
+					<p><i class="fa fa-user"></i>   Profile</p>
+					<p><i class="fa fa-cog"></i> <a href="/changepasss/">change password</a></p>
+					<p><i class="fa fa-power-off"><a href="/">Log Out</a></i>   </p>
+				</div>
+
+
+			</div>
+
+			<div class="clearfix"></div>
+		</div>
+
+		<br><br>
+		<div class="content">
+
+
+			<table>
+
+  <thead>
+    <tr>
+      <th scope="col" 	 >service </th>
+      <th scope="col">count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td >PHOTOGRAPHER</td>
+      <td>{{ph}}</td>
+
+    </tr>
+  <tr>
+      <td>AUDITORIUM OWNERS</td>
+      <td>{{audo}}</td>
+    </tr>
+  <tr>
+      <td>CAB OWNERS</td>
+      <td>{{car}}</td>
+    </tr>
+  <tr>
+      <td>CATERING SERVICE</td>
+      <td>{{cat}}</td>
+    </tr>
+  <tr>
+      <td>EVENT MANAGEMENT</td>
+      <td>{{evm}}</td>
+    </tr>
+
+
+
+  </tbody>
+
+
+</table>
+			<br>
+		<table>
+
+  <thead>
+    <tr>
+      <th scope="col" 	style=" width:1pc;" >ID</th>
+      <th scope="col" style=" width:4pc;" >Cname</th>
+      <th scope="col" style=" width:4pc;" >job</th>
+
+
+    </tr>
+  </thead>
+  <tbody>
+  {%for i in de %}
+    <tr>
+      <td data-label="Account">{{i.id}}</td>
+      <td data-label="Due Date">{{i.namecu}}</td>
+      <td data-label="Due Date">{{i.job}}</td>
+
+    </tr>
+  {% endfor %}
+
+
+  </tbody>
+</table>
+		</div>
+
+
+
+	</div>
+</section>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+$(document).ready(function(){
+  $(".user").click(function(){
+    $(".profile-div").toggle(1000);
+  });
+  $(".hicon:nth-child(1)").click(function(){
+    $(".notification-div").toggle(1000);
+  });
+  $(".sicon").click(function(){
+    $(".search").toggle(1000);
+  });
+});
+</script>
+
+<script type="text/javascript">
+	$('li').click(function(){
+    $('li').removeClass("active");
+    $(this).addClass("active");
+});
+
+
+
+
+</script>
+</body>
+</html>

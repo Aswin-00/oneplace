@@ -1,0 +1,239 @@
+{% load static%}
+<!DOCTYPE html>
+
+<html lang="en" style="background:#222;">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ONE PLACE</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
+    <!-- custom css file link  -->
+
+    <link href="{% static 'sct/css/bootstrap.css'%}" rel='stylesheet' type='text/css' /><!-- bootstrap css -->
+    <link href="{% static 'sct/css/style.css'%}" rel='stylesheet' type='text/css' /><!-- custom css -->
+	<link href="{% static 'sct/css/css_slider.css'%}" type="text/css" rel="stylesheet" media="all">
+    <link href="{% static 'sct/css/font-awesome.min.css'%}" rel="stylesheet"><!-- fontawesome css -->
+	<!-- //css files -->
+
+	<!-- google fonts -->
+	<link href="//fonts.googleapis.com/css?family=Muli:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+
+</head>
+<body style="background:#222;">
+
+<!-- header section starts  -->
+<header class="header">
+
+    <a href="#" class="logo"><span>o</span>NE<span> P</span>LACE</a>
+
+    <nav class="navbar">
+        <a href="#photographer">PHOTOGRAFER</a>
+        <a href="#car">CAR </a>
+        <a href="/user/">userpage</a>
+        <a href="/">logout</a>
+
+
+    </nav>
+
+    <div id="menu-bars" class="fas fa-bars"></div>
+
+</header>
+
+<h1 class="heading" style="padding-top:10rem;"> PHOTOGRAPHER<span>booked</span> </h1>
+
+
+<!-- PHOTOGRAPHER service section starts  -->
+<section class="service" id="photographer" style="color:white; ">
+
+<table style="font-size:20px;margin:21px;">
+<thead>
+    <tr>
+      <th scope="col" 	style=" width:3pc;" >ID</th>
+      <th scope="col" style=" width:11pc;" >booking date</th>
+      <th scope="col"  style=" width:13pc;">person name</th>
+      <th scope="col"  style=" width:13pc;">service</th>
+      <th scope="col" style=" width:8pc;" >Event date</th>
+      <th scope="col" style=" width:10pc;"  >Event time</th>
+      <th scope="col" style=" width:10pc;"  >payment</th>
+        <th scope="col"  style="width:4pc ;"colspan="2" > status</th>
+    </tr>
+  </thead>
+  <tbody>
+{%for i in phbooking %}
+    <tr>
+    <td scope="col"   style="text-align:center;" >{{i.bno}}</td>
+      <td scope="col" style="text-align:center;" >{{i.bdate}}</td>
+      <td scope="col"  style="text-align:center;">{{i.sname}}</td>
+      <td scope="col"  style="text-align:center;">{{i.serv}}</td>
+      <td scope="col" style= "text-align:center;"" >{{i.rdate}}</td>
+      <td scope="col" style= "text-align:center;"" >{{i.rtime}}</td>
+      <td scope="col" style=" text-align:center;">{{i.pstat}}</td>
+		<td data-label="Amount" style="position: relative;">
+				<ul style=" lex-direction: row;
+    display: flex;
+    gap: 14px;
+     list-style-type: none;
+    text-decoration: none;">
+
+				<li><a href="/payment/{{i.bno}}/PH">PAY </a></li>
+				</ul>
+		</td>
+
+    </tr>
+{% endfor %}
+
+  </tbody>
+</table>
+
+
+</section>
+<h1 class="heading"> car<span>booked</span> </h1>
+
+<section class="service" id="car" style="color:white;">
+<table style="font-size:20px;margin:21px;">
+<thead>
+    <tr>
+      <th scope="col" 	style=" width:3pc;" >ID</th>
+      <th scope="col" style=" width:11pc;" >booking date</th>
+      <th scope="col"  style=" width:13pc;">person name</th>
+      <th scope="col"  style=" width:13pc;">carname</th>
+      <th scope="col" style=" width:8pc;" >Event date</th>
+      <th scope="col" style=" width:10pc;"  >Event time</th>
+      <th scope="col" style=" width:10pc;"  >payment</th>
+        <th scope="col"  style="width:4pc ;"colspan="2" > status</th>
+    </tr>
+  </thead>
+  <tbody>
+{%for i in crbooking %}
+    <tr>
+    <td scope="col"   style="text-align:center;" >{{i.bno}}</td>
+      <td scope="col" style="text-align:center;" >{{i.bdate}}</td>
+      <td scope="col"  style="text-align:center;">{{i.sname}}</td>
+
+      <td scope="col" style= "text-align:center;"" >{{i.carname}}</td>
+      <td scope="col" style= "text-align:center;"" >{{i.rdate}}</td>
+      <td scope="col" style= "text-align:center;"" >{{i.rtime}}</td>
+      <td scope="col" style=" text-align:center;">{{i.pstat}}</td>
+		<td data-label="Amount" style="position: relative;">
+				<ul style=" lex-direction: row;
+    display: flex;
+    gap: 14px;
+     list-style-type: none;
+    text-decoration: none;">
+
+				<li><a href="/payment/{{i.bno}}/CR">PAY </a></li>
+				</ul>
+		</td>
+
+    </tr>
+{% endfor %}
+
+  </tbody>
+</table>
+
+
+</section>
+
+<h1 class="heading"> cat<span>ering</span> </h1>
+
+
+<section class="service" id="car" style="color:white;">
+<table style="font-size:20px;margin:21px;">
+<thead>
+    <tr>
+      <th scope="col" 	style=" width:3pc;" >ID</th>
+      <th scope="col" style=" width:11pc;" >booking date</th>
+      <th scope="col"  style=" width:13pc;">person name</th>
+      <th scope="col"  style=" width:13pc;">food package</th>
+      <th scope="col" style=" width:8pc;" >Event date</th>
+      <th scope="col" style=" width:10pc;"  >Event time</th>
+      <th scope="col" style=" width:10pc;"  >payment</th>
+        <th scope="col"  style="width:4pc ;"colspan="2" > status</th>
+    </tr>
+  </thead>
+  <tbody>
+{%for i in ctbooking %}
+    <tr>
+    <td scope="col"   style="text-align:center;" >{{i.bno}}</td>
+      <td scope="col" style="text-align:center;" >{{i.bdate}}</td>
+      <td scope="col"  style="text-align:center;">{{i.sname}}</td>
+
+      <td scope="col" style= "text-align:center;"" >{{i.pckname}}</td>
+      <td scope="col" style= "text-align:center;"" >{{i.rdate}}</td>
+      <td scope="col" style= "text-align:center;"" >{{i.rtime}}</td>
+      <td scope="col" style=" text-align:center;">{{i.pstat}}</td>
+		<td data-label="Amount" style="position: relative;">
+				<ul style=" lex-direction: row;
+    display: flex;
+    gap: 14px;
+     list-style-type: none;
+    text-decoration: none;">
+
+				<li><a href="/payment/{{i.bno}}/CT">PAY </a></li>
+				</ul>
+		</td>
+
+    </tr>
+{% endfor %}
+
+  </tbody>
+</table>
+
+
+</section>
+
+
+<div class="theme-toggler">
+
+    <div class="toggle-btn">
+        <i class="fas fa-cog"></i>
+    </div>
+
+    <h3>choose color</h3>
+
+    <div class="buttons">
+        <div class="theme-btn" style="background: #3867d6;"></div>
+        <div class="theme-btn" style="background: #f7b731;"></div>
+        <div class="theme-btn" style="background: #ff0033;"></div>
+        <div class="theme-btn" style="background: #20bf6b;"></div>
+        <div class="theme-btn" style="background: #fa8231;"></div>
+        <div class="theme-btn" style="background: #FC427B;"></div>
+    </div>
+
+</div>
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<!-- custom js file link  -->
+<script src="{% static 'js/script.js'%}"></script>
+
+</body>
+</html>

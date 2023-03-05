@@ -1,0 +1,246 @@
+{% load static%}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ONE PLACE</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
+    <!-- custom css file link  -->
+
+    <link href="{% static 'sct/css/bootstrap.css'%}" rel='stylesheet' type='text/css' /><!-- bootstrap css -->
+    <link href="{% static 'sct/css/style.css'%}" rel='stylesheet' type='text/css' /><!-- custom css -->
+	<link href="{% static 'sct/css/css_slider.css'%}" type="text/css" rel="stylesheet" media="all">
+    <link href="{% static 'sct/css/font-awesome.min.css'%}" rel="stylesheet"><!-- fontawesome css -->
+	<!-- //css files -->
+
+	<!-- google fonts -->
+	<link href="//fonts.googleapis.com/css?family=Muli:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+
+</head>
+<body>
+
+<!-- header section starts  -->
+<header class="header">
+
+    <a href="#" class="logo"><span>o</span>NE<span> P</span>LACE</a>
+
+    <nav class="navbar">
+        <a href="/userbookingpage/">my booking</a>
+        <a href="/changepasss/">change password</a>
+        <a href="#PHOTOGRAPHER">PHOTOGRAPHER</a>
+        <a href="#cats">CATERING </a>
+        <a href="#carowners">CAR ONWERS</a>
+        <a href="/">log out</a>
+
+    </nav>
+
+    <div id="menu-bars" class="fas fa-bars"></div>
+
+</header>
+
+
+
+<h1 class="heading">  PHOTO<span>GRAPHER</span> </h1>
+<!-- PHOTOGRAPHER service section starts  -->
+<section class="service" id="PHOTOGRAFER">
+
+    <h1 class="heading">  PHOTO<span>GRAPHER</span> </h1>
+    <div class="container py-lg-5">
+        <div class="row bottom-grids">
+            {% for i in PH%}
+                <div class="col-lg-3 col-sm-6">
+                <div class="three-grids-w3pvt-1 d-flex text-right"
+                     style="background: url({{i.picmg.url}});
+                            min-height: 300px;
+                            position: relative;
+                            z-index: 1;
+                            background-size: cover;
+"
+                >
+                    <div class="text-effect-wthree midd-text-w3ls p-3 w-100" >
+                        <h5 class="text-uppercase text-bl font-weight-bold">{{i.about}}</h5>
+                       <h5 class="text-uppercase text-bl font-weight-bold" style='font-size:14px' >booking charge RS {{i.tpric}}</h5>
+
+                        <a href="/pht/{{i.pid}}/" class="btn"><i style='font-size:24px' class='fas'>&#xf406;</i> </a>
+                    </div>
+
+                </div>
+            </div>
+            {% endfor %}
+
+    </div>
+    </div>
+</div>
+
+
+    </div>
+
+</section>
+<!-- CAB OWNERS   section starts  -->
+<section class="service" id="cab">
+
+    <h1 class="heading"> CAB <span> OWNERS </span> </h1>
+    <div class="container py-lg-5">
+        <div class="row bottom-grids">
+
+            {% for i in CA%}
+                <div class="col-lg-3 col-sm-6">
+                <div class="three-grids-w3pvt-1 d-flex text-right"
+                     style="background: url({{i.cimg.url}});
+                            min-height: 300px;
+                            position: relative;
+                            z-index: 1;
+                            background-size: cover;">
+
+                    <div class="text-effect-wthree midd-text-w3ls p-3 w-100" >
+                        <h5 class="text-uppercase text-bl font-weight-bold">{{i.carnm}}</h5>
+                        <h5 class="text-uppercase text-bl font-weight-bold" style='font-size:14px' >cost per km {{i.tpric}}</h5>
+
+                        <a href="/carusr/{{i.id}}/" class="btn"><i style='font-size:24px' class='fas'>&#xf406;</i> </a>
+                    </div>
+
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+            </div>
+
+
+
+
+    </div>
+</div>
+
+
+    </div>
+
+</section>
+
+
+<!-- CATERING    section starts  -->
+<section class="service" id="cats">
+
+    <h1 class="heading"> CAB <span> OWNERS </span> </h1>
+    <div class="container py-lg-5">
+        <div class="row bottom-grids">
+
+            {% for i in CT%}
+                <div class="col-lg-3 col-sm-6">
+                <div class="three-grids-w3pvt-1 d-flex text-right"
+                     style="background: url({{i.cimg.url}});
+                            min-height: 300px;
+                            position: relative;
+                            z-index: 1;
+                            background-size: cover;">
+
+                    <div class="text-effect-wthree midd-text-w3ls p-3 w-100" >
+                        <h5 class="text-uppercase text-bl font-weight-bold">{{i.pckname}}</h5>
+                        <h5 class="text-uppercase text-bl font-weight-bold" style="font-size: 11px;">{{i.foodit}}</h5>
+                        <h5 class="text-uppercase text-bl font-weight-bold">RS {{i.pech}}</h5>
+
+                        <a href="/CATSusrvw/{{i.id}}/" class="btn"><i style='font-size:24px' class='fas'>&#xf406;</i> </a>
+                    </div>
+
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+            </div>
+
+
+
+
+    </div>
+</div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- about section starts  -->
+
+<section class="about" id="about">
+
+<h1 class="heading"><span>about</span> us </h1>
+
+<div class="row">
+
+    <div class="image">
+        <img src="{% static 'images/about-img.jpg'%}" alt="">
+    </div>
+
+    <div class="content">
+        <h3>we will give a very special celebration for you</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam labore fugiat ut esse perferendis perspiciatis provident dolores fuga in facilis culpa possimus, quia praesentium itaque, sapiente quasi harum rem asperiores.</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat vero expedita incidunt provident quibusdam aut odit, numquam nesciunt similique nisi.</p>
+        <a href="#" class="btn">contact us</a>
+    </div>
+
+</div>
+
+</section>
+
+
+
+<div class="theme-toggler">
+
+    <div class="toggle-btn">
+        <i class="fas fa-cog"></i>
+    </div>
+
+    <h3>choose color</h3>
+
+    <div class="buttons">
+        <div class="theme-btn" style="background: #3867d6;"></div>
+        <div class="theme-btn" style="background: #f7b731;"></div>
+        <div class="theme-btn" style="background: #ff0033;"></div>
+        <div class="theme-btn" style="background: #20bf6b;"></div>
+        <div class="theme-btn" style="background: #fa8231;"></div>
+        <div class="theme-btn" style="background: #FC427B;"></div>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<!-- custom js file link  -->
+<script src="{% static 'js/script.js'%}"></script>
+
+</body>
+</html>

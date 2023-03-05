@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Profile Page</title>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'PHTGOpage/css/style.css'%}" />
+  </head>
+  <body>
+
+    <div class="header__wrapper">
+      <header style="background: url({{cimg.url}}) no-repeat 50% 20% / cover;"></header>
+      <div class="cols__container">
+        <div class="left__col">
+          <h2>{{fname}} {{lname}}</h2>
+
+          <div class="img__container">
+            <img src="{{img.url}}" alt="Anna Smith" />
+            <span></span>
+          </div>
+          <h2>{{com}}</h2>
+          <p>{{job}}</p>
+          <p>{{email}}</p>
+          <p>{{phone}}</p>
+          <p>{{adress}}</p>
+
+          <ul class="about">
+            <li><span>RS {{tpric}}</span>basic fare</li>
+            <span></span>
+            <li><span>RS {{opric}}</span>cost per image</li>
+          </ul>
+
+          <div class="content">
+            <p>
+              {{about}}
+            </p>
+
+            <ul>
+              <li><i class="fab fa-twitter"></i></li>
+              <i class="fab fa-pinterest"></i>
+              <i class="fab fa-facebook"></i>
+              <i class="fab fa-dribbble"></i>
+            </ul>
+          </div>
+        </div>
+
+        <div class="right__col">
+          <nav>
+            <ul>
+
+              <li><a href="#">galleries</a></li>
+              <li><a href="#">REVIEWS</a></li>
+
+            </ul>
+            <button><a href="/usrbk/"> book now</a></button>
+          </nav>
+
+          <div class="photos">
+              {% for i in imgus%}
+              <img src="{{i.img.url}}" alt="Photo" />
+                {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

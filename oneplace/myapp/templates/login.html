@@ -1,0 +1,46 @@
+{%load static %}
+<!DOCTYPE html>
+<!-- Coding by CodingLab | www.codinglabweb.com-->
+
+
+<html lang="en" dir="ltr">
+  <head>
+    <title> user login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<title> Registration or Sign Up form in HTML CSS | CodingLab </title>-->
+    <link rel="stylesheet" href="{% static 'log/style.css/'%}">
+   </head>
+
+  <script>
+ let c="{{msg}}";
+ if (c!=="0"){
+  alert(c);
+ }
+
+</script>
+
+<body>
+  <div class="wrapper">
+    <h2> User Login </h2>
+    <form action="#" method="Post">
+      {% csrf_token%}
+      <div class="input-box">
+        <input type="text" name="usernm" placeholder="Enter your user name" required>
+      </div>
+      <div class="input-box">
+        <input type="password" name="userpw" placeholder="Create password" required>
+      </div>
+
+      <div class="input-box button">
+        <input type="Submit" value="LOGIN">
+      </div>
+      <div class="text">
+        <h3> Create a account  <a href="/sing/">singn</a></h3>
+      </div>
+    </form>
+  </div>
+</body>
+
+
+</html>

@@ -1,0 +1,106 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Profile Page</title>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'CABO/css/food.css'%}" />
+    <link rel="stylesheet" href="{% static 'CABO/css/profile.css'%}" />
+<!--  <link rel="stylesheet" href="css/food.css" />-->
+<!--    <link rel="stylesheet" href="css/profile.css" />-->
+  </head>
+  <body>
+
+    <div class="header__wrapper">
+
+      <div class="cols__container">
+        <div class="left__col" style="width: 300px; padding-top:40% ; background:rebeccapurple;">
+          <div class="img__container" style="top: 42px;">
+            <img src="img/user.jpeg" alt="Anna Smith" />
+            <span></span>
+          </div>
+          <h2>{{request.session.company}}</h2>
+          <p>{{request.session.job}}</p>
+          <p>{{request.session.email}}</p>
+          <p>{{request.session.web}}</p>
+
+          <ul class="about">
+            <li><span>{{request.session.address}}</span>address</li>
+            <li><span>{{request.session.phoneno}}</span>Phone</li>
+            <li><span>{{request.session.region}}</span>Region</li>
+          </ul>
+
+          <div class="content">
+            <p>
+              {{request.session.about}}
+            </p>
+
+            <ul>
+              <i class="fab fa-twitter"></i>
+              <i class="fab fa-pinterest"></i>
+              <i class="fab fa-facebook"></i>
+              <i class="fab fa-dribbble"></i>
+            </ul>
+          </div></div>
+        <div class="right__col">
+          <nav>
+            <ul>
+              <li><a href="/car/">menu</a></li>
+
+
+
+            </ul>
+          </nav>
+        <div style="display:grid;">
+        <section class="food-area">
+        <div class="container">
+
+            <div class="foods">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                <div class="single-food" >
+                    <div class="food-img">
+                        <input type="file" name="image" style="padding:30%;" >
+                        <h4>package </h4>
+                    </div>
+                    <ul class="food-list">
+
+                        <li> <input placeholder="car name" type="text" name="carnm"></li>
+                        <br>
+                        <li> <input  placeholder= "carmodel" type="text" name="carmdl"></li>
+                        <br>
+                        <li> <input placeholder=" seating capacity" type="text" name="stcp"></li>
+                        <br>
+                        <li> <input placeholder="Booking charge" type="text" name="bookingch"></li>
+                        <br>
+                        <li> <input placeholder="Cost per KM" type="text" name="tpric"></li>
+                    </ul>
+                    <button style="background: orange;
+    font-size: 31px;
+    padding: 5px;
+    border: none;
+    border-radius: 56px;
+    width: 100%;" type="submit">upload</button>
+                </div>
+
+            </form>
+            </div>
+        </div>
+    </section>
+        </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

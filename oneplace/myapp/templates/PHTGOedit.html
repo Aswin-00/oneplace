@@ -1,0 +1,182 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Profile Page</title>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'PHTGOpage/css/style.css'%}" />
+    <link rel="stylesheet" href="{% static 'PHTGOpage/css/editpage.css'%}" />
+  </head>
+  <body>
+    <div class="header__wrapper">
+     <header style="background: url({{cicmg.url}}) no-repeat 50% 20% / cover;"></header>
+      <div class="cols__container">
+
+        <div class="left__col">
+          <div class="img__container">
+            <img src="{{picmg.url}}" alt="Anna Smith" />
+            <span></span>
+          </div>
+          <h2></h2>
+          <p>{{request.session.fname}}</p>
+          <p>{{request.session.address}}</p>
+          <p>{{request.session.job}}</p>
+          <p>{{request.session.email}}</p>
+            <p  name ="id" style="display:none;">{{request.session.id}}</p>
+          <ul class="about">
+            <li><span>{{opric}}</span>cost per photo</li>
+            <li><span>{{tpric}}</span>total cost</li>
+
+          </ul>
+
+          <div class="content">
+            <p>
+              {{request.session.about}}
+            </p>
+
+            <ul>
+              <li><i class="fab fa-twitter"></i></li>
+              <i class="fab fa-pinterest"></i>
+              <i class="fab fa-facebook"></i>
+              <i class="fab fa-dribbble"></i>
+            </ul>
+          </div>
+        </div>
+
+
+        <div class="right__col">
+          <nav>
+            <ul>
+              <li><a href="/pht/">menus</a></li>
+            </ul>
+<!--            <button>Follow</button>-->
+          </nav>
+
+          <div>
+            <div class="container">
+        <div class="text">BASIC INFORMATIIONS</div>
+        <form action="#" method="POST" enctype="multipart/form-data">
+            {%csrf_token%}
+            <div class="form-row">
+                <h2>profile pic and cover pic</h2>
+            </div>
+          <div class="form-row">
+
+              <div class="input-data">
+                 <input  name="picmg" class="custom-file-input-pic"  type="file" >
+
+              </div>
+              <div class="input-data">
+                 <input name="cimg" class="custom-file-input" type="file">
+
+              </div>
+
+           </div>
+            <div class="form-row">
+              <h2>BASIC INFO</h2>
+            </div>
+          <div class="form-row">
+              <div class="input-data">
+                 <input name="fname" type="text"  value="{{fname}}">
+                 <div class="underline"></div>
+                 <label for="" >First Name</label>
+              </div>
+              <div class="input-data">
+                 <input  name="lname" type="text"  value="{{lname}}">
+                 <div class="underline"></div>
+                 <label for="" >Last Name</label>
+              </div>
+           </div>
+           <div class="form-row">
+              <div class="input-data">
+                 <input name="email type="text"  value="{{email}}" >
+                 <div class="underline"></div>
+                 <label for="" >Email Address</label>
+              </div>
+               <div class="input-data">
+                 <input type="text" name="wid" value="{{slink}}">
+                 <div class="underline"></div>
+                 <label for="" >website URL</label>
+              </div>
+
+           </div>
+            <div class="form-row">
+                <h2>BASIC RATE</h2>
+            </div>
+             <div class="form-row">
+              <div class="input-data">
+                 <input  name="tpric" type="numeber" required value="{{tpric}}">
+                 <div class="underline"></div>
+                 <label for="" >baci pic ratein RS</label>
+              </div>
+              <div class="input-data">
+                 <input type="numeber"  name="opric" required value="{{opric}}">
+                 <div class="underline"></div>
+                 <label for="" >one day photoshot cost in RS</label>
+              </div>
+
+             </div>
+
+<!--            <div class="form-row">-->
+<!--                <h2>Socal media</h2>-->
+<!--            </div>-->
+<!--             <div class="form-row">-->
+<!--              <div class="input-data">-->
+<!--                 <input  name="tw"  type="text" value=" " >-->
+<!--                 <div class="underline"></div>-->
+<!--                 <label for=""><i class="fab fa-twitter"></i></label>-->
+<!--              </div>-->
+<!--               <div class="input-data">-->
+<!--                 <input name="fb"  type="text" value=" " required>-->
+<!--                 <div class="underline"></div>-->
+<!--                 <label  for=""><i class="fab fa-facebook"></i></label>-->
+<!--              </div>-->
+<!--              <div class="input-data">-->
+<!--                 <input type="text" name="pn" value=" " >-->
+<!--                 <div class="underline"></div>-->
+<!--                 <label for="" ><i class="fab fa-pinterest"></i></label>-->
+<!--              </div>-->
+<!--               <div class="input-data">-->
+<!--                 <input type="txt"  value=" " name="inst" required>-->
+<!--                 <div class="underline"></div>-->
+<!--                 <label for="" ><i class="fab fa-instagram"></i></label>-->
+<!--              </div>-->
+<!--             </div>-->
+            <div class="form-row">
+                <h2>About</h2>
+            </div>
+
+           <div class="form-row">
+              <div class="input-data textarea">
+                 <textarea rows="8" cols="80" required name="about" >{{about}}</textarea>
+                 <br />
+                 <div class="underline"></div>
+                 <label for=""></label>
+                 <br />
+
+              </div>
+           </div>
+            <div class="form-row">
+              <div class="input-data textarea">
+                 <button type="submit">update</button>
+              </div>
+           </div>
+        </form>
+     </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+  </body>
+</html>

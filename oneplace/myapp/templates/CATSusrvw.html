@@ -1,0 +1,104 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CATERING SERVISE PROVIDER Profile Page</title>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'CATS/css/food.css'%}" />
+    <link rel="stylesheet" href="{% static 'CATS/css/profile.css'%}" />
+  </head>
+  <body>
+
+    <div class="header__wrapper">
+
+      <div class="cols__container" style="position:absolute;">
+          {% for i in provider%}
+        <div class="left__col" style="width: 17pc; padding-top:40% ;background: mediumspringgreen;">
+          <div class="img__container" style="top: 42px;">
+
+
+          </div>
+          <h2>{{i.namecu}}</h2>
+          <p>{{i.fname}}</p>
+          <p>{{job}}</p>
+          <p>{{i.emial}}</p>
+
+          <ul class="about">
+            <li><span>{{i.Add}}</span>Address</li>
+            <li><span>{{i.phnum}}</span>contact</li>
+            <li><span>{{i.rwork}}</span>region of work</li>
+          </ul>
+
+          <div class="content">
+            <p>
+              {{i.about}}
+            </p>
+
+            <ul>
+              <i class="fab fa-twitter"></i>
+              <i class="fab fa-pinterest"></i>
+              <i class="fab fa-facebook"></i>
+              <i class="fab fa-dribbble"></i>
+            </ul>
+          </div></div>
+          {% endfor%}
+        <div class="right__col">
+          <nav>
+            <ul>
+              <li><a href="">menu</a></li>
+              <li><a href="">review</a></li>
+
+            </ul>
+          </nav>
+        <div style="display:grid;">
+
+        <section class="food-area">
+            {% for i in data%}
+            <div class="container">
+
+            <div class="foods">
+                <div class="single-food">
+                    <div class="food-img">
+                        <img src="{{i.cimg.url}}"" alt="" style="width: 400px; height: 400px;">
+                        <h4>package 1</h4>
+                    </div>
+                    <ul class="food-list">
+                        <li>Package name: <span>{{i.pckname}}</span></li>
+
+                        <li>{{i.foodit}}</li>
+
+
+                        <li>booking charge : <span>{{i.bkch}}</span></li>
+                        <li>cost per plate : <span>{{i.pech}}</span></li>
+                    </ul>
+                     <a href="/catbk/{{i.id}}/">booknow</a>
+
+                </div>
+
+            </div>
+
+        </div>
+            {% endfor %}
+    </section>
+
+        </div>
+
+
+
+        </div>
+
+      </div>
+    </div>
+  </body>
+
+
+
+</html>

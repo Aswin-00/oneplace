@@ -1,0 +1,96 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Profile Page</title>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'CABO/css/food.css'%}" />
+    <link rel="stylesheet" href="{% static 'CABO/css/profile.css'%}" />
+<!--  <link rel="stylesheet" href="css/food.css" />-->
+<!--    <link rel="stylesheet" href="css/profile.css" />-->
+  </head>
+  <body>
+
+    <div class="header__wrapper">
+{%for i in provider%}
+      <div class="cols__container">
+        <div class="left__col" style="width: 300px; padding-top:40% ; background:rebeccapurple;">
+          <div class="img__container" style="top: 42px;">
+            <img style="display:none" src="img/user.jpeg" alt="Anna Smith" />
+            
+          </div>
+          <h2>{{i.namecu}}</h2>
+          <p>{{job}}</p>
+          <p>{{i.email}}</p>
+          <p>{{i.slink}}</p>
+
+          <ul class="about">
+            <li><span>{{i.Add}}</span>address</li>
+            <li><span>{{i.pnum}}</span>Phone</li>
+            <li><span>{{i.rwork}}</span>Region</li>
+          </ul>
+
+          <div class="content">
+            <p>
+              {{i.about}}
+            </p>
+
+            <ul>
+              <i class="fab fa-twitter"></i>
+              <i class="fab fa-pinterest"></i>
+              <i class="fab fa-facebook"></i>
+              <i class="fab fa-dribbble"></i>
+            </ul>
+              {% endfor %}
+          </div></div>
+        <div class="right__col">
+          <nav>
+            <ul>
+              <li><a href="">cardetail</a></li>
+              <li><a href="">review</a></li>
+            </ul>
+          </nav>
+        <div style="display:grid;">
+        <section class="food-area">
+        <div class="container">
+
+            <div class="foods">
+
+
+                <div class="single-food" >
+                    <div class="food-img">
+                        <img style="width:200px; height:200px;" src="{{carimg.url}}" alt="">
+                        <h4>package </h4>
+                    </div>
+                    <ul class="food-list">
+
+                        <li>car name<span>{{carname}}</span></li>
+                        <li> car model <span>{{carmd}} </span></li>
+                        <li>seating capacity <span>{{seat}} </span></li>
+                        <li> booking charge<span>RS {{carbooking}}:</span></li>
+                        <li> cost per km<span>RS {{tpric}}:</span></li>
+                    </ul>
+                    <a href="/login/">booknow</a>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+        </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

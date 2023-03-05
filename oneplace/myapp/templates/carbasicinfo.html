@@ -1,0 +1,173 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Profile Page</title>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'CABO/css/food.css'%}" />
+    <link rel="stylesheet" href="{% static 'PHTGOpage/css/editpage.css'%}" />
+    <link rel="stylesheet" href="{% static 'CABO/css/profile.css'%}" />
+<!--  <link rel="stylesheet" href="css/food.css" />-->
+<!--    <link rel="stylesheet" href="css/profile.css" />-->
+  </head>
+  <body>
+
+    <div class="header__wrapper">
+
+      <div class="cols__container">
+        <div class="left__col" style="width: 300px; padding-top:40% ; background:rebeccapurple;">
+          <div class="img__container" style="top: 42px;">
+            <img src="img/user.jpeg" alt="Anna Smith" />
+            <span></span>
+          </div>
+          <h2>{{request.session.company}}</h2>
+          <p>{{request.session.job}}</p>
+          <p>{{request.session.email}}</p>
+          <p>{{request.session.web}}</p>
+
+          <ul class="about">
+            <li><span>{{request.session.address}}</span>address</li>
+            <li><span>{{request.session.phoneno}}</span>Phone</li>
+            <li><span>{{request.session.region}}</span>Region</li>
+          </ul>
+
+          <div class="content">
+            <p>
+              {{request.session.about}}
+            </p>
+
+            <ul>
+              <i class="fab fa-twitter"></i>
+              <i class="fab fa-pinterest"></i>
+              <i class="fab fa-facebook"></i>
+              <i class="fab fa-dribbble"></i>
+            </ul>
+          </div></div>
+        <div class="right__col">
+          <nav>
+            <ul>
+              <li><a href="/car/">menu</a></li>
+
+
+
+            </ul>
+          </nav>
+
+
+            <div class="container">
+        <div class="text">BASIC INFORMATIIONS</div>
+        <form action="#" method="POST" enctype="multipart/form-data">
+            {%csrf_token%}
+            <div class="form-row">
+              <h2>BASIC INFO</h2>
+            </div>
+          <div class="form-row">
+              <div class="input-data">
+                 <input name="fname" type="text"  value="{{fname}}">
+                 <div class="underline"></div>
+                 <label for="" >First Name</label>
+              </div>
+              <div class="input-data">
+                 <input  name="lname"  type="text"  value="{{lname}}">
+                 <div class="underline"></div>
+                 <label for="" >Last Name</label>
+              </div>
+           </div>
+           <div class="form-row">
+              <div class="input-data">
+                 <input name="email" type="text"  value="{{email}}" >
+                 <div class="underline"></div>
+                 <label for="" >Email Address</label>
+              </div>
+               <div class="input-data">
+                 <input type="text" name="wid" value="{{slink}}">
+                 <div class="underline"></div>
+                 <label for="" >website URL</label>
+              </div>
+
+           </div>
+            <div class="form-row">
+                <h2>contact Information</h2>
+            </div>
+             <div class="form-row">
+              <div class="input-data">
+                 <input  name="phone" type="numeber" required value="{{phone}}">
+                 <div class="underline"></div>
+                 <label for="" >phonumner</label>
+              </div>
+              <div class="input-data">
+                 <input type="numeber"  name="address" required value="{{address}}">
+                 <div class="underline"></div>
+                 <label for="" >adress</label>
+              </div>
+
+             </div>
+
+<!--            <div class="form-row">-->
+<!--                <h2>Socal media</h2>-->
+<!--            </div>-->
+<!--             <div class="form-row">-->
+<!--              <div class="input-data">-->
+<!--                 <input  name="tw"  type="text" value=" " >-->
+<!--                 <div class="underline"></div>-->
+<!--                 <label for=""><i class="fab fa-twitter"></i></label>-->
+<!--              </div>-->
+<!--               <div class="input-data">-->
+<!--                 <input name="fb"  type="text" value=" " required>-->
+<!--                 <div class="underline"></div>-->
+<!--                 <label  for=""><i class="fab fa-facebook"></i></label>-->
+<!--              </div>-->
+<!--              <div class="input-data">-->
+<!--                 <input type="text" name="pn" value=" " >-->
+<!--                 <div class="underline"></div>-->
+<!--                 <label for="" ><i class="fab fa-pinterest"></i></label>-->
+<!--              </div>-->
+<!--               <div class="input-data">-->
+<!--                 <input type="txt"  value=" " name="inst" required>-->
+<!--                 <div class="underline"></div>-->
+<!--                 <label for="" ><i class="fab fa-instagram"></i></label>-->
+<!--              </div>-->
+<!--             </div>-->
+            <div class="form-row">
+                <h2>About</h2>
+            </div>
+
+           <div class="form-row">
+              <div class="input-data textarea">
+                 <textarea rows="8" cols="80" required name="about" >{{about}}</textarea>
+                 <br />
+                 <div class="underline"></div>
+                 <label for=""></label>
+                 <br />
+
+              </div>
+           </div>
+            <div class="form-row">
+              <div class="input-data textarea">
+                 <button type="submit">update</button>
+              </div>
+           </div>
+        </form>
+     </div>
+
+
+
+        </div>
+    </section>
+        </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,484 @@
+{% load static%}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ONE PLACE</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
+    <!-- custom css file link  -->
+
+    <link href="{% static 'sct/css/bootstrap.css'%}" rel='stylesheet' type='text/css' /><!-- bootstrap css -->
+    <link href="{% static 'sct/css/style.css'%}" rel='stylesheet' type='text/css' /><!-- custom css -->
+	<link href="{% static 'sct/css/css_slider.css'%}" type="text/css" rel="stylesheet" media="all">
+    <link href="{% static 'sct/css/font-awesome.min.css'%}" rel="stylesheet"><!-- fontawesome css -->
+	<!-- //css files -->
+
+	<!-- google fonts -->
+	<link href="//fonts.googleapis.com/css?family=Muli:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+
+</head>
+<body>
+
+<!-- header section starts  -->
+
+<header class="header">
+
+    <a href="#" class="logo"><span>o</span>NE<span> P</span>LACE</a>
+
+    <nav class="navbar">
+        <a href="#home">home</a>
+        <a href="#PHOTOGRAFER">PHOTOGRAFER</a>
+        <a href="#cats">CATERING</a>
+        <a href="#cab">CAR RENTING</a>
+        <a href="#price">price</a>
+        <a href="/reg/">Service Registration </a>
+        <a href="/sing/">NEW USER</a>
+    </nav>
+
+    <div id="menu-bars" class="fas fa-bars"></div>
+
+</header>
+
+<!-- header section ends -->
+
+<!-- home section starts  -->
+
+<section class="home" id="home">
+
+    <div class="content">
+        <h3>One Place To Book  <span>  Your Happiness  </span></h3>
+        <a href="/login/" class="btn">Login</a>
+    </div>
+
+    <div class="swiper-container home-slider">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="{% static 'images/slide-2.jpg'%}" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'images/slide-1.jpg'%}" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'images/slide-3.jpg'%}" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'images/slide-4.jpg'%}" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'images/slide-5.jpg'%}" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'images/slide-6.jpg'%}" alt=""></div>
+        </div>
+    </div>
+
+</section>
+
+
+<!-- PHOTOGRAPHER service section starts  -->
+<section class="service" id="PHOTOGRAFER">
+
+    <h1 class="heading">  PHOTO<span>GRAPHER</span> </h1>
+    <div class="container py-lg-5">
+        <div class="row bottom-grids">
+            {% for i in PH%}
+                <div class="col-lg-3 col-sm-6">
+                <div class="three-grids-w3pvt-1 d-flex text-right"
+                     style="background: url({{i.picmg.url}});
+                            min-height: 300px;
+                            position: relative;
+                            z-index: 1;
+                            background-size: cover;
+"
+                >
+                    <div class="text-effect-wthree midd-text-w3ls p-3 w-100" >
+                        <h5 class="text-uppercase text-bl font-weight-bold">{{i.about}}</h5>
+                       <h5 class="text-uppercase text-bl font-weight-bold" style='font-size:14px' >booking charge RS {{i.tpric}}</h5>
+
+                        <a href="/noneloginuserphto/{{i.pid}}/" class="btn"><i style='font-size:24px' class='fas'>&#xf406;</i> </a>
+                    </div>
+
+                </div>
+            </div>
+            {% endfor %}
+
+    </div>
+    </div>
+</div>
+
+
+    </div>
+
+</section>
+
+
+
+
+<!-- CAB OWNERS   section starts  -->
+<section class="service" id="cab">
+
+    <h1 class="heading"> CAB <span> OWNERS </span> </h1>
+    <div class="container py-lg-5">
+        <div class="row bottom-grids">
+
+            {% for i in CA%}
+                <div class="col-lg-3 col-sm-6">
+                <div class="three-grids-w3pvt-1 d-flex text-right"
+                     style="background: url({{i.cimg.url}});
+                            min-height: 300px;
+                            position: relative;
+                            z-index: 1;
+                            background-size: cover;">
+
+                    <div class="text-effect-wthree midd-text-w3ls p-3 w-100" >
+                        <h5 class="text-uppercase text-bl font-weight-bold">{{i.carnm}}</h5>
+                        <h5 class="text-uppercase text-bl font-weight-bold" style='font-size:14px' >cost per km {{i.tpric}}</h5>
+
+                        <a href="/noneloginusercabo/{{i.id}}/" class="btn"><i style='font-size:24px' class='fas'>&#xf406;</i> </a>
+                    </div>
+
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+            </div>
+
+
+
+
+    </div>
+</div>
+
+
+    </div>
+
+</section>
+
+
+<!-- CATERING    section starts  -->
+<section class="service" id="cats">
+
+    <h1 class="heading"> CAB <span> OWNERS </span> </h1>
+    <div class="container py-lg-5">
+        <div class="row bottom-grids">
+
+            {% for i in CT%}
+                <div class="col-lg-3 col-sm-6">
+                <div class="three-grids-w3pvt-1 d-flex text-right"
+                     style="background: url({{i.cimg.url}});
+                            min-height: 300px;
+                            position: relative;
+                            z-index: 1;
+                            background-size: cover;">
+
+                    <div class="text-effect-wthree midd-text-w3ls p-3 w-100" >
+                        <h5 class="text-uppercase text-bl font-weight-bold">{{i.pckname}}</h5>
+                        <h5 class="text-uppercase text-bl font-weight-bold" style="font-size: 11px;">{{i.foodit}}</h5>
+                        <h5 class="text-uppercase text-bl font-weight-bold">RS {{i.pech}}</h5>
+
+                        <a href="/noneloginusercats/{{i.id}}/" class="btn"><i style='font-size:24px' class='fas'>&#xf406;</i> </a>
+                    </div>
+
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+            </div>
+
+
+
+
+    </div>
+</div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- about section starts  -->
+
+<section class="about" id="about">
+
+<h1 class="heading"><span>about</span> us </h1>
+
+<div class="row">
+
+    <div class="image">
+        <img src="{% static 'images/about-img.jpg'%}" alt="">
+    </div>
+
+    <div class="content">
+        <h3>we will give a very special celebration for you</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam labore fugiat ut esse perferendis perspiciatis provident dolores fuga in facilis culpa possimus, quia praesentium itaque, sapiente quasi harum rem asperiores.</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat vero expedita incidunt provident quibusdam aut odit, numquam nesciunt similique nisi.</p>
+        <a href="#" class="btn">contact us</a>
+    </div>
+
+</div>
+
+</section>
+
+<!-- about section ends -->
+
+<!-- gallery section starts  -->
+run
+<!-- <section class="gallery" id="gallery"> -->
+
+
+<!-- gallery section ends -->
+
+<!-- price section starts  -->
+
+<section class="price" id="price">
+
+    <h1 class="heading"> our <span>price</span> </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3 class="title">for birthdays</h3>
+            <h3 class="amount">$250.99</h3>
+            <ul>
+                <li><i class="fas fa-check"></i>full services</li>
+                <li> <i class="fas fa-check"></i> decorations </li>
+                <li> <i class="fas fa-check"></i> music and photos </li>
+                <li> <i class="fas fa-check"></i> food and drinks </li>
+                <li> <i class="fas fa-check"></i> invitation card </li>
+            </ul>
+            <a href="#" class="btn">check out</a>
+        </div>
+
+        <div class="box">
+            <h3 class="title">for weddings</h3>
+            <h3 class="amount">$450.99</h3>
+            <ul>
+                <li><i class="fas fa-check"></i>full services</li>
+                <li> <i class="fas fa-check"></i> decorations </li>
+                <li> <i class="fas fa-check"></i> music and photos </li>
+                <li> <i class="fas fa-check"></i> food and drinks </li>
+                <li> <i class="fas fa-check"></i> invitation card </li>
+            </ul>
+            <a href="#" class="btn">check out</a>
+        </div>
+
+        <div class="box">
+            <h3 class="title">for concerts</h3>
+            <h3 class="amount">$650.99</h3>
+            <ul>
+                <li><i class="fas fa-check"></i>full services</li>
+                <li> <i class="fas fa-check"></i> decorations </li>
+                <li> <i class="fas fa-check"></i> music and photos </li>
+                <li> <i class="fas fa-check"></i> food and drinks </li>
+                <li> <i class="fas fa-check"></i> invitation card </li>
+            </ul>
+            <a href="#" class="btn">check out</a>
+        </div>
+
+        <div class="box">
+            <h3 class="title">for others</h3>
+            <h3 class="amount">$850.99</h3>
+            <ul>
+                <li><i class="fas fa-check"></i>full services</li>
+                <li> <i class="fas fa-check"></i> decorations </li>
+                <li> <i class="fas fa-check"></i> music and photos </li>
+                <li> <i class="fas fa-check"></i> food and drinks </li>
+                <li> <i class="fas fa-check"></i> invitation card </li>
+            </ul>
+            <a href="#" class="btn">check out</a>
+        </div>
+
+    </div></section>
+
+<!-- price section ends -->
+
+<!-- review section starts  -->
+
+<!-- <section class="reivew" id="review">  -->
+
+    <!-- <h1 class="heading">client's <span>review</span></h1>
+
+    <div class="review-slider swiper-container">
+
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide box">
+                <i class="fas fa-quote-right"></i>
+                <div class="user">
+                    <img src="{% static 'images/pic-1.png'%}" alt="">
+                    <div class="user-info">
+                        <h3>john deo</h3>
+                        <span>happy clients</span>
+                    </div>
+                </div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis dolor dicta cum. Eos beatae eligendi, magni numquam nemo sed ut corrupti, ipsam iure nisi unde et assumenda perspiciatis voluptatibus nihil.</p>
+            </div>
+
+            <div class="swiper-slide box">
+                <i class="fas fa-quote-right"></i>
+                <div class="user">
+                    <img src="{% static 'images/pic-2.png'%}" alt="">
+                    <div class="user-info">
+                        <h3>john deo</h3>
+                        <span>happy clients</span>
+                    </div>
+                </div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis dolor dicta cum. Eos beatae eligendi, magni numquam nemo sed ut corrupti, ipsam iure nisi unde et assumenda perspiciatis voluptatibus nihil.</p>
+            </div>
+
+            <div class="swiper-slide box">
+                <i class="fas fa-quote-right"></i>
+                <div class="user">
+                    <img src="{% static 'images/pic-3.png'%}" alt="">
+                    <div class="user-info">
+                        <h3>john deo</h3>
+                        <span>happy clients</span>
+                    </div>
+                </div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis dolor dicta cum. Eos beatae eligendi, magni numquam nemo sed ut corrupti, ipsam iure nisi unde et assumenda perspiciatis voluptatibus nihil.</p>
+            </div>
+
+            <div class="swiper-slide box">
+                <i class="fas fa-quote-right"></i>
+                <div class="user">
+                    <img src="{% static 'images/pic-4.png'%}" alt="">
+                    <div class="user-info">
+                        <h3>john deo</h3>
+                        <span>happy clients</span>
+                    </div>
+                </div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis dolor dicta cum. Eos beatae eligendi, magni numquam nemo sed ut corrupti, ipsam iure nisi unde et assumenda perspiciatis voluptatibus nihil.</p>
+            </div>
+
+        </div></div>
+ -->
+</section>
+
+<!-- review section ends -->
+
+<!-- contact section starts  -->
+
+<!-- <section class="contact" id="contact"> -->
+
+    <h1 class="heading"> <span>contact</span> us </h1>
+
+    <!-- <form action="">
+        <div class="inputBox">
+            <input type="text" placeholder="name">
+            <input type="email" placeholder="email">
+        </div>
+        <div class="inputBox">
+            <input type="number" placeholder="number">
+            <input type="text" placeholder="subject">
+        </div>
+        <textarea name="" placeholder="your message" id="" cols="30" rows="10"></textarea>
+        <input type="submit" value="send message" class="btn">
+    </form
+    > -->
+</section>
+
+<!-- contact section ends -->
+
+<!-- footer section starts  -->
+
+<section class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>branches</h3>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> mumbai </a>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> jogeshwari </a>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> goregaon </a>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> navi mumbai </a>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> andheri </a>
+        </div>
+
+        <div class="box">
+            <h3>quick links</h3>
+            <a href="#"> <i class="fas fa-arrow-right"></i> home </a>
+            <a href="#"> <i class="fas fa-arrow-right"></i> service </a>
+            <a href="#"> <i class="fas fa-arrow-right"></i> about </a>
+            <a href="#"> <i class="fas fa-arrow-right"></i> gallery </a>
+            <a href="#"> <i class="fas fa-arrow-right"></i> price </a>
+            <a href="#"> <i class="fas fa-arrow-right"></i> reivew </a>
+            <a href="#"> <i class="fas fa-arrow-right"></i> contact </a>
+        </div>
+
+        <div class="box">
+            <h3>contact info</h3>
+            <a href="#"> <i class="fas fa-phone"></i> +123-456-7890 </a>
+            <a href="#"> <i class="fas fa-phone"></i> +111-222-3333 </a>
+            <a href="#"> <i class="fas fa-envelope"></i> shaikhanas@gmail.com </a>
+            <a href="#"> <i class="fas fa-envelope"></i> anasshaikh@gmail.com </a>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> mumbai, india - 400104 </a>
+        </div>
+
+        <div class="box">
+            <h3>follow us</h3>
+            <a href="#"> <i class="fab fa-facebook-f"></i> facebook </a>
+            <a href="#"> <i class="fab fa-twitter"></i> twitter </a>
+            <a href="#"> <i class="fab fa-instagram"></i> instagram </a>
+            <a href="#"> <i class="fab fa-linkedin"></i> linkedin </a>
+        </div>
+
+    </div>
+
+    <div class="credit"> created by <span>mr. web designer</span> | all rights reserved </div>
+
+</section>
+
+<!-- footer section ends -->
+
+<!-- theme toggler  -->
+
+<div class="theme-toggler">
+
+    <div class="toggle-btn">
+        <i class="fas fa-cog"></i>
+    </div>
+
+    <h3>choose color</h3>
+
+    <div class="buttons">
+        <div class="theme-btn" style="background: #3867d6;"></div>
+        <div class="theme-btn" style="background: #f7b731;"></div>
+        <div class="theme-btn" style="background: #ff0033;"></div>
+        <div class="theme-btn" style="background: #20bf6b;"></div>
+        <div class="theme-btn" style="background: #fa8231;"></div>
+        <div class="theme-btn" style="background: #FC427B;"></div>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<!-- custom js file link  -->
+<script src="{% static 'js/script.js'%}"></script>
+
+</body>
+</html>

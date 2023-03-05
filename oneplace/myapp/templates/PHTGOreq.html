@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Profile Page</title>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'PHTGOpage/css/style.css'%}" />
+  </head>
+  <body>
+    <div class="header__wrapper">
+      <header style="background: url({{cimg.url}}) no-repeat 50% 20% / cover;"></header>
+      <div class="cols__container">
+       <div class="left__col">
+          <h2>{{fname}} {{lname}}</h2>
+
+          <div class="img__container">
+            <img src="{{img.url}}" alt="Anna Smith" />
+            <span></span>
+          </div>
+          <h2>{{com}}</h2>
+          <p>{{job}}</p>
+          <p>{{email}}</p>
+          <p>{{phone}}</p>
+          <p>{{adress}}</p>
+
+          <ul class="about">
+            <li><span>RS {{tpric}}</span>basic fare</li>
+            <span></span>
+            <li><span>RS {{opric}}</span>cost per image</li>
+          </ul>
+
+          <div class="content">
+            <p>
+              {{about}}
+            </p>
+
+            <ul>
+              <li><i class="fab fa-twitter"></i></li>
+              <i class="fab fa-pinterest"></i>
+              <i class="fab fa-facebook"></i>
+              <i class="fab fa-dribbble"></i>
+            </ul>
+          </div>
+        </div>
+
+        <div class="right__col">
+             <nav>
+            <ul>
+              <li><a href="/pht/">menus</a></li>
+            </ul>
+<!--            <button>Follow</button>-->
+          </nav>
+
+
+
+<div style="display:grid;">
+            <table>
+                <center><h1>REQUEST LIST</h1></center>
+  <thead>
+    <tr>
+      <th scope="col" 	style=" width:3pc;" >ID</th>
+      <th scope="col" style=" width:8pc;" >booking date</th>
+      <th scope="col"  style=" width:8pc;">custumer name</th>
+      <th scope="col" style=" width:8pc;" >Event date</th>
+      <th scope="col" style=" width:10pc;"  >Event time</th>
+		<th scope="col"  style="width:4pc ;"colspan="2" > status</th>
+    </tr>
+  </thead>
+  <tbody>
+{%for i in booking %}
+    <tr>
+    <td scope="col"   style="text-align:center;" >{{i.bno}}</td>
+      <td scope="col" style="text-align:center;" >{{i.bdate}}</td>
+      <td scope="col"  style="text-align:center;">{{i.custname}}</td>
+      <td scope="col" style= "text-align:center;"" >{{i.rdate}}</td>
+      <td scope="col" style=" text-align:center;">{{i.rtime}}</td>
+		<td data-label="Amount" style="position: relative;">
+				<ul style=" lex-direction: row;
+    display: flex;
+    gap: 14px;
+     list-style-type: none;
+    text-decoration: none;">
+				<li><a href="/cancel/{{i.bno}}/PH">reject</a></li>
+				<li><a href="/payadvance/{{i.bno}}/PH">Accept </a></li>
+				</ul>
+		</td>
+
+    </tr>
+{% endfor %}
+
+  </tbody>
+</table>
+
+</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
