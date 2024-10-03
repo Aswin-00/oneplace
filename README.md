@@ -1,0 +1,1 @@
+Conceptualized and built a prototype for a service marketplace website, aimed at selling services as products. In this project, users can register as a regular user, company, or freelancer. After registering, the admin verifies their profile, and once approved, the user is listed as a valid service provider. Other users can then book services from these verified providers
